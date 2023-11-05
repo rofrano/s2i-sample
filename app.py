@@ -1,6 +1,9 @@
 """
 Simple Flask App
 """
+import os
+
+PORT = int(os.getenv('PORT', '8080'))
 
 from flask import Flask
 
@@ -20,4 +23,7 @@ def health():
 def hello():
     """Send back Hello world"""
     return {"message": "Hello World"}, 200
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=PORT)
 
